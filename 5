@@ -1,0 +1,32 @@
+import java.util.Random;
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Random random=new Random();
+        Scanner scanner=new Scanner(System.in);
+        System.out.print("Введите размер массива: ");
+        int size= scanner.nextInt();
+        while(size<1) {
+            System.out.print("Введите размер массива больше 0: ");
+            size= scanner.nextInt();
+        }
+        int[] arr=new int[size];
+        for(int i=0; i<size; i++) {
+            arr[i]= random.nextInt(0, 100);
+            System.out.print(arr[i]+", ");
+        }
+        System.out.println("\n");
+        int element=0;
+        int last_element=arr.length-1;
+        for(int i=0; i<arr.length/2; i++){
+            element=arr[i];
+            arr[i]=arr[last_element];
+            arr[last_element]=element;
+            last_element--;
+        }
+        for(int i=0; i< arr.length; i++){
+            System.out.print(arr[i]+", ");
+        }
+    }
+}
